@@ -1,11 +1,12 @@
 const webpack = require('webpack');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('../webpack.config.js');
 const nodemon = require('nodemon');
 const path = require('path');
 
 const compiler = webpack(webpackConfig);
 
 compiler.run((err) => {
+  console.log('test');
   if (err) console.log('Compilation failed', err);
 
   compiler.watch({}, (err) => {

@@ -5,15 +5,15 @@ const IS_DEV = NODE_ENV === 'development';
 const IS_PROD = NODE_ENV === 'production';
 
 function setupDevtool() {
-  if (IS_DEV) return 'eval';
   if (IS_PROD) return false;
+  if (IS_DEV) return 'eval';
 }
 
 module.exports = {
+  mode: NODE_ENV ? NODE_ENV : 'development',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
   },
-  mode: NODE_ENV ? NODE_ENV : 'development',
   entry: path.resolve(__dirname, '../src/client/index.jsx'),
   output: {
     path: path.resolve(__dirname, '../dist/client'),
